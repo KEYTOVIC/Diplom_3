@@ -2,6 +2,7 @@ package tests;
 
 import com.example.Config;
 import io.qameta.allure.Step;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +16,7 @@ public class PersonalAccountTests {
     private WebDriverWait wait;
 
     @Before
-    @Step("Настройка тестового окружения")
+    @DisplayName("Настройка тестового окружения")
     public void setUp() {
         driver = new ChromeDriver();
         driver.get(Config.BASE_URL);
@@ -23,55 +24,55 @@ public class PersonalAccountTests {
     }
 
     @Test
-    @Step("Тест перехода в личный кабинет")
+    @DisplayName("Тест перехода в личный кабинет")
     public void TransferPersonalAccountTest() {
         PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver, wait);
         performTransferPersonalAccount(personalAccountPage);
     }
 
-    @Step("Переход в личный кабинет")
+    @DisplayName("Переход в личный кабинет")
     private void performTransferPersonalAccount(PersonalAccountPage personalAccountPage) {
         personalAccountPage.TransferPersonalAccount("maks123@mail.ru", "Maks4321");
     }
 
     @Test
-    @Step("Тест работы кнопки конструктора")
+    @DisplayName("Тест работы кнопки конструктора")
     public void designerButtonWorkingTest() {
         PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver, wait);
         performDesignerButtonWorking(personalAccountPage);
     }
 
-    @Step("Проверка работы кнопки конструктора")
+    @DisplayName("Проверка работы кнопки конструктора")
     private void performDesignerButtonWorking(PersonalAccountPage personalAccountPage) {
         personalAccountPage.designerButtonWorking("maks123@mail.ru", "Maks4321");
     }
 
     @Test
-    @Step("Тест работы кнопки логотипа")
+    @DisplayName("Тест работы кнопки логотипа")
     public void logoButtonWorkingTest() {
         PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver, wait);
         performLogoButtonWorking(personalAccountPage);
     }
 
-    @Step("Проверка работы кнопки логотипа")
+    @DisplayName("Проверка работы кнопки логотипа")
     private void performLogoButtonWorking(PersonalAccountPage personalAccountPage) {
         personalAccountPage.logoButtonWorking("maks123@mail.ru", "Maks4321");
     }
 
     @Test
-    @Step("Тест выхода из личного кабинета")
+    @DisplayName("Тест выхода из личного кабинета")
     public void logOutPersonalAccountTest() {
         PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver, wait);
         performLogOutPersonalAccount(personalAccountPage);
     }
 
-    @Step("Выход из личного кабинета")
+    @DisplayName("Выход из личного кабинета")
     private void performLogOutPersonalAccount(PersonalAccountPage personalAccountPage) {
         personalAccountPage.logOutPersonalAccount("maks123@mail.ru", "Maks4321");
     }
 
     @After
-    @Step("Закрытие тестового окружения")
+    @DisplayName("Закрытие тестового окружения")
     public void tearDown() {
         if (driver != null) {
             driver.quit();

@@ -2,6 +2,7 @@ package tests;
 
 import com.example.Config;
 import io.qameta.allure.Step;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +16,7 @@ public class DesignerTest {
     private WebDriverWait wait;
 
     @Before
-    @Step("Настройка тестового окружения")
+    @DisplayName("Настройка тестового окружения")
     public void setUp() {
         driver = new ChromeDriver();
         driver.get(Config.BASE_URL);
@@ -24,7 +25,7 @@ public class DesignerTest {
 
 
     @Test
-    @Step("Проверка на работоспособность Tab Булки")
+    @DisplayName("Проверка на работоспособность Tab Булки")
     public void bunsVisableTest() {
         DesignerPage designerPage = new DesignerPage(driver, wait);
         designerPage.buttonBuns();
@@ -32,7 +33,7 @@ public class DesignerTest {
     }
 
     @Test
-    @Step("Проверка на работоспособность Tab Соусы")
+    @DisplayName("Проверка на работоспособность Tab Соусы")
     public void saucesVisableTest() {
         DesignerPage designerPage = new DesignerPage(driver, wait);
         designerPage.buttonSaouces();
@@ -40,7 +41,7 @@ public class DesignerTest {
     }
 
     @Test
-    @Step("Проверка на работоспособность Tab Начинки")
+    @DisplayName("Проверка на работоспособность Tab Начинки")
     public void fillingsVisableTest() {
         DesignerPage designerPage = new DesignerPage(driver, wait);
         designerPage.buttonFillings();

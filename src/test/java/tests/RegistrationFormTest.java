@@ -2,6 +2,7 @@ package tests;
 
 import com.example.Config;
 import io.qameta.allure.Step;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.After;
@@ -28,13 +29,13 @@ public class RegistrationFormTest {
     }
 
     @Test
-    @Step("Тест успешной регистрации")
+    @DisplayName("Тест успешной регистрации")
     public void successfulRegistrationFormTest() {
         LoginPage loginPage = new LoginPage(driver, wait);
         performSuccessfulRegistration(loginPage);
     }
 
-    @Step("Заполнение формы успешной регистрации")
+    @DisplayName("Заполнение формы успешной регистрации")
     private void performSuccessfulRegistration(LoginPage loginPage) {
         loginPage.clickPersonalAccount();
         loginPage.clickRegisterButton();
@@ -42,13 +43,13 @@ public class RegistrationFormTest {
     }
 
     @Test
-    @Step("Тест неудачной регистрации")
+    @DisplayName("Тест неудачной регистрации")
     public void failedRegistrationFormTest() {
         LoginPage loginPage = new LoginPage(driver, wait);
         performFailedRegistration(loginPage);
     }
 
-    @Step("Заполнение формы с некорректными данными")
+    @DisplayName("Заполнение формы с некорректными данными")
     private void performFailedRegistration(LoginPage loginPage) {
         loginPage.clickPersonalAccount();
         loginPage.clickRegisterButton();
@@ -56,7 +57,7 @@ public class RegistrationFormTest {
     }
 
     @After
-    @Step("Закрытие тестового окружения и удаление пользователя")
+    @DisplayName("Закрытие тестового окружения и удаление пользователя")
     public void tearDown() {
         if (driver != null) {
             LoginPage loginPage = new LoginPage(driver, wait);
@@ -68,7 +69,7 @@ public class RegistrationFormTest {
         }
     }
 
-    @Step("Удаление пользователя через API")
+    @DisplayName("Удаление пользователя через API")
     public void deleteUser(String token) {
         RestAssured.baseURI = "https://stellarburgers.nomoreparties.site/api/auth/user";
         Response response = given()
