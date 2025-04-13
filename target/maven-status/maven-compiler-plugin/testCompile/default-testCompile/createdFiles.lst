@@ -1,0 +1,10 @@
+pages\InputPage.class
+com\example\Config.class
+utils\WebDriverFactory.class
+pages\LoginPage.class
+pages\DesignerPage.class
+pages\PersonalAccountPage.class
+tests\RegistrationFormTest.class
+tests\CheckingInputFormTests.class
+tests\DesignerTest.class
+tests\PersonalAccountTests.class
